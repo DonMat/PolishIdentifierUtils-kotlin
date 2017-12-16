@@ -17,6 +17,8 @@
 package pl.utkala.polishidentifiersutils
 
 class PeselUtil(private val pesel: String) {
+    enum class Gender { MALE, FEMALE }
+
     private val WEIGHTS = listOf(1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1)
     var error: ValidatorError? = null
     private var valid = false
@@ -26,6 +28,13 @@ class PeselUtil(private val pesel: String) {
             validate()
         else
             false
+    }
+
+    fun getGender() : Gender?{
+        return if(isValid()){
+            if(pesel[9].toInt() % 2 != 0) Gender.MALE else Gender.FEMALE
+        } else
+            null
     }
 
     private fun checkInput(): Boolean {

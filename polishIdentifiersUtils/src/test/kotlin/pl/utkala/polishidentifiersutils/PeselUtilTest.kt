@@ -25,18 +25,23 @@ class PeselUtilTest {
     fun validPeselTest() {
         var pesel = PeselUtil("67881319915")
         assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.error, null)
 
         pesel = PeselUtil("78060533750")
         assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.error, null)
 
         pesel = PeselUtil("61021854465")
         assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.error, null)
 
         pesel = PeselUtil("09272910390")
         assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.error, null)
 
         pesel = PeselUtil("35111831513")
         assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.error, null)
     }
 
     @Test
@@ -79,5 +84,23 @@ class PeselUtilTest {
         val pesel = PeselUtil("123abc34247")
         assertEquals(pesel.isValid(), false)
         assertEquals(pesel.error, ValidatorError.INVALID_INPUT)
+    }
+
+    @Test
+    fun checkGenderForValidPeselTest(){
+        var pesel = PeselUtil("67881319915")
+        assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.getGender(), PeselUtil.Gender.MALE)
+
+        pesel = PeselUtil("61021854465")
+        assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.getGender(), PeselUtil.Gender.FEMALE)
+    }
+
+    @Test
+    fun checkGenderForInvalidPeselTest() {
+        val pesel = PeselUtil("67881319911")
+        assertEquals(pesel.isValid(), false)
+        assertEquals(pesel.getGender(), null)
     }
 }
