@@ -30,11 +30,43 @@ class PeselUtil(private val pesel: String) {
             false
     }
 
-    fun getGender() : Gender?{
-        return if(isValid()){
-            if(pesel[9].toInt() % 2 != 0) Gender.MALE else Gender.FEMALE
+    fun getGender(): Gender? {
+        return if (isValid()) {
+            if (pesel[9].toInt() % 2 != 0) Gender.MALE else Gender.FEMALE
         } else
             null
+    }
+
+    fun getBirthDate(): String? {
+        if (isValid()) {
+            var year = Integer.parseInt(pesel.substring(0, 2), 10)
+            var month = Integer.parseInt(pesel.substring(2, 4), 10)
+            val day = Integer.parseInt(pesel.substring(4, 6), 10)
+
+            when {
+                month > 80 -> {
+                    year += 1800
+                    month -= 80
+                }
+                month > 60 -> {
+                    year += 2200
+                    month -= 60
+                }
+                month > 40 -> {
+                    year += 2100
+                    month -= 40
+                }
+                month > 20 -> {
+                    year += 2000
+                    month -= 20
+                }
+                else -> year += 1900
+            }
+
+            return year.toString() + "-" + String.format("%02d", month) + "-" + String.format("%02d", day)
+        } else {
+            return null
+        }
     }
 
     private fun checkInput(): Boolean {

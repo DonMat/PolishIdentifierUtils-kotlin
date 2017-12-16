@@ -87,7 +87,7 @@ class PeselUtilTest {
     }
 
     @Test
-    fun checkGenderForValidPeselTest(){
+    fun checkGenderForValidPeselTest() {
         var pesel = PeselUtil("67881319915")
         assertEquals(pesel.isValid(), true)
         assertEquals(pesel.getGender(), PeselUtil.Gender.MALE)
@@ -103,4 +103,31 @@ class PeselUtilTest {
         assertEquals(pesel.isValid(), false)
         assertEquals(pesel.getGender(), null)
     }
+
+    @Test
+    fun checkBirthDateForValidPeselTest() {
+        var pesel = PeselUtil("67881319915")
+        assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.getBirthDate(), "1867-08-13")
+
+        pesel = PeselUtil("61021854465")
+        assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.getBirthDate(), "1961-02-18")
+
+        pesel = PeselUtil("01301055623")
+        assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.getBirthDate(), "2001-10-10")
+
+        pesel = PeselUtil("33450593635")
+        assertEquals(pesel.isValid(), true)
+        assertEquals(pesel.getBirthDate(), "2133-05-05")
+    }
+
+    @Test
+    fun checkBirthDateForInvalidPeselTest() {
+        val pesel = PeselUtil("67881319911")
+        assertEquals(pesel.isValid(), false)
+        assertEquals(pesel.getBirthDate(), null)
+    }
+
 }
