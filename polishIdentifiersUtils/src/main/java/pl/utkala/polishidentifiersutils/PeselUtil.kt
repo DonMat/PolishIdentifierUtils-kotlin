@@ -19,15 +19,16 @@ package pl.utkala.polishidentifiersutils
 class PeselUtil(private val pesel: String) {
     enum class Gender { MALE, FEMALE }
 
-    private val WEIGHTS = listOf(1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1)
+    private val WEIGHTS = intArrayOf(1, 3, 7, 9, 1, 3, 7, 9, 1, 3, 1)
     var error: ValidatorError? = null
     private var valid = false
 
     fun isValid(): Boolean {
-        return if (valid || checkInput())
-            validate()
-        else
-            false
+        return when {
+            valid -> true
+            checkInput() -> validate()
+            else -> false
+        }
     }
 
     fun getGender(): Gender? {
@@ -84,8 +85,7 @@ class PeselUtil(private val pesel: String) {
     }
 
     private fun validate(): Boolean {
-        var sum = 0
-        pesel.forEachIndexed { index, value -> sum += (value.toInt() * WEIGHTS[index]) }
+        val sum = (0 until pesel.length).sumBy { pesel[it].toInt() * WEIGHTS[it] }
         return if (sum % 10 == 0) {
             valid = true
             true
