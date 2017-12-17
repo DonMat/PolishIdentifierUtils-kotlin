@@ -26,7 +26,7 @@ allprojects {
 Step 2. Add the dependency
 ```gradle
 dependencies {
-        compile 'com.github.DonMat:PolishIdentifiersUtils-kotlin:v0.0.2'
+        compile 'com.github.DonMat:PolishIdentifiersUtils-kotlin:v0.0.3'
 }
 ```
 
