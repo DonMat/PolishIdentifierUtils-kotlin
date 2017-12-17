@@ -37,7 +37,7 @@ dependencies {
   * getGender()
 
 - NipUtil
-  * IN PROGRESS
+  * isValid()
 
 - RegonUtil
   * IN PROGRESS
