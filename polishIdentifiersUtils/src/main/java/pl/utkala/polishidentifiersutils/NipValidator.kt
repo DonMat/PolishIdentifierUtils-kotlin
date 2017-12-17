@@ -16,7 +16,7 @@
 
 package pl.utkala.polishidentifiersutils
 
-class NipUtil(private val nip: String) {
+class NipValidator(private val nip: String) {
 
     private val WEIGHTS = intArrayOf(6, 5, 7, 2, 3, 4, 5, 6, 7)
     var error: ValidatorError? = null

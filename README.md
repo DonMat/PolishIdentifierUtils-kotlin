@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/DonMat/PolishIdentifiersUtils-kotlin.svg?branch=master)](https://travis-ci.org/DonMat/PolishIdentifiersUtils-kotlin)
 
 
-This is simple lightweight library written in Kotlin to manage and validates polish identification numbers like: NIP, PESEL, REGON (9-digit and 14-digit).
+This is simple lightweight library written in Kotlin to validate polish identification numbers like: NIP, PESEL, REGON (9-digit and 14-digit).
 
 ## Purpose of project
 It is easier to maintain validators and other utilities functions as one additional library instead of coppy&pase the same code between projects.
@@ -36,7 +36,7 @@ dependencies {
   * getBirthDate()
   * getGender()
 
-- NipUtil
+- NipValidator
   * isValid()
 
 - RegonValidator

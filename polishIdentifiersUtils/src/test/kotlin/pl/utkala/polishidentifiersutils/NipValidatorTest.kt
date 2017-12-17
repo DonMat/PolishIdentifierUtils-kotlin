@@ -20,49 +20,49 @@ import org.junit.Assert.assertEquals
 import org.junit.Test
 
 
-class NipUtilTest {
+class NipValidatorTest {
     @Test
     fun validNipTest() {
-        var nip = NipUtil("3790494818")
+        var nip = NipValidator("3790494818")
         assertEquals(nip.isValid(), true)
         assertEquals(nip.error, null)
 
-        nip = NipUtil("PL 106-00-00-062")
+        nip = NipValidator("PL 106-00-00-062")
         assertEquals(nip.isValid(), true)
         assertEquals(nip.error, null)
     }
 
     @Test
     fun invalidNipTest() {
-        val nip = NipUtil("3790494811")
+        val nip = NipValidator("3790494811")
         assertEquals(nip.isValid(), false)
         assertEquals(nip.error, ValidatorError.INVALID)
     }
 
     @Test
     fun emptyNipTest() {
-        val nip = NipUtil("")
+        val nip = NipValidator("")
         assertEquals(nip.isValid(), false)
         assertEquals(nip.error, ValidatorError.WRONG_LENGTH)
     }
 
     @Test
     fun shortNipTest() {
-        val nip = NipUtil("1234")
+        val nip = NipValidator("1234")
         assertEquals(nip.isValid(), false)
         assertEquals(nip.error, ValidatorError.WRONG_LENGTH)
     }
 
     @Test
     fun longNipTest() {
-        val nip = NipUtil("123412341234")
+        val nip = NipValidator("123412341234")
         assertEquals(nip.isValid(), false)
         assertEquals(nip.error, ValidatorError.WRONG_LENGTH)
     }
 
     @Test
     fun invalidInputTest() {
-        val nip = NipUtil("EN 106-00-00-062")
+        val nip = NipValidator("EN 106-00-00-062")
         assertEquals(nip.isValid(), false)
         assertEquals(nip.error, ValidatorError.WRONG_LENGTH)
     }
