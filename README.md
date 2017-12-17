@@ -39,8 +39,8 @@ dependencies {
 - NipUtil
   * isValid()
 
-- RegonUtil
-  * IN PROGRESS
+- RegonValidator
+  * isValid()
 
 License
 -------
