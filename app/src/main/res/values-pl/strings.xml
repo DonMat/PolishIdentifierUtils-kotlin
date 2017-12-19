@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
+<?xml version="1.0" encoding="utf-8"?><!--
   ~ Copyright (C) 2017 Mateusz Utkała
   ~
   ~ Licensed under the Apache License, Version 2.0 (the "License");
@@ -16,8 +15,11 @@
   -->
 
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#3F51B5</color>
-    <color name="colorGreen">#2E7D32</color>
+    <string name="app_name">Weryfikator NIP, PESEL, REGON</string>
+    <string name="number_edit_text_hint">Numer do weryfikacji</string>
+    <string name="validate_button_text">Weryfikuj</string>
+    <string name="invalid_pesel_text">Niepoprawny PESEL, %s</string>
+    <string name="invalid_nip_text">Niepoprawny NIP, %s</string>
+    <string name="valid_text">Numer poprawny</string>
+    <string name="invalid_regon_text">Niepoprawny REGON, %s</string>
 </resources>
