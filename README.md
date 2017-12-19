@@ -43,7 +43,7 @@ dependencies {
   * isValid()
 
 ## Demo
-![Screenshot](https://github.com/DonMat/PolishIdentifiersUtils-kotlin/raw/master/raw/screenshot.png "Screenshot")
+![Screenshot](https://github.com/DonMat/PolishIdentifiersUtils-kotlin/raw/master/raw/screenshot.png?raw=true "Screenshot")
 
 License
 -------
